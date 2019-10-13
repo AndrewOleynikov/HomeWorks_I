@@ -27,7 +27,7 @@ int getByte(int x, int n){
 }
 
 int logicalShift(int x, int n){
-  return (x >> n) & ~((1 << 31) >> (n + ~1 + 1));
+  return (x >> n) & (~(((1 << 31) >> n) << 1));
 }
 
 int addOK(int x, int y){
@@ -40,14 +40,15 @@ int bang(int x){
 }
 
 int isPower2(int x){
-  return !(x & (x + ~1 + 1));
+  return x&&!(x & (x + ~1 + 1));
 }
 
 int conditional(int x, int y, int z){
-  return ((~!!x | 1) & y) | (!x & z);
+  return z ^ ((y ^ z) & ((!x) + ~0));
 }
 
-// int main(int argc, char const *argv[]) {
-//   printf("%d\n", conditional(0, 4, 5));
-//   return 0;
-// }
+/* int main(int argc, char const *argv[]) {
+   printf("%d\n", conditional(0, 4, 5));
+   return 0;
+ }
+*/
