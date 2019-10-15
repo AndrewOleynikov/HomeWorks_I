@@ -39,16 +39,15 @@ int bang(int x){
   return ((x | (~x + 1)) >> 31) + 1;
 }
 
-int isPower2(int x){
-  return x&&!(x & (x + ~1 + 1));
+size_t isPower2(int x){
+  return x&&!(x & (x + (~1 + 1)))&&!(x & (x + (~1 + 1)));
 }
 
 int conditional(int x, int y, int z){
   return z ^ ((y ^ z) & ((!x) + ~0));
 }
 
-/* int main(int argc, char const *argv[]) {
-   printf("%d\n", conditional(0, 4, 5));
+ /*int main(int argc, char const *argv[]) {
+   printf("%d\n", isPower2(-2));
    return 0;
- }
-*/
+ }*/
