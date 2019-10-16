@@ -34,7 +34,7 @@ int main(int argc, char const *argv[]){
   if (sign == 1){
     ans /= 10 * (-1);
   }
-  if(ans > INT_MAX || ans < INT_MIN){
+  if(ans > INT_MAX || ans < INT_MIN || correct == 0){
     printf("%s\n", "ERROR");
   } else{
     printf("%d\n", ans);
