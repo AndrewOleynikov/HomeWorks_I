@@ -25,9 +25,9 @@ int main()
     int result = 0;
     char out[255] = {0};
     for (int i = 2, j = 0; i < strlen(str); i += 3, j += 4) {
-        int first = (str[i - 2] >> 2) << 18; printf("%d\n", first);
+        int first = (str[i - 2] >> 2) << 18; //printf("%d\n", first);
         int firstTail = (str[i - 2] & 0b11) << 4;
-        int second = (firstTail | (str[i - 1] >> 4)) <<  12;printf("%d\n", second);
+        int second = (firstTail | (str[i - 1] >> 4)) <<  12;//printf("%d\n", second);
         int secondTail = (str[i - 1] & 0b1111) << 2;//
         int third = (secondTail | (str[i] >> 6)) << 6;//printf("%d\n", third);
         int fourth = str[i] & 0b111111; //printf("%d\n", fourth);
