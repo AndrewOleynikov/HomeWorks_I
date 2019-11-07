@@ -36,8 +36,8 @@ int main()
         }
     }
     if (correct == 1) {
-            printf("%d", ans * (-1));
         if (sign) {
+            printf("%d", ans * (-1));
         } else {
             printf("%d5", ans);
         }
