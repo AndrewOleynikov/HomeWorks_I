@@ -232,7 +232,7 @@ size_t countIndividuals(struct List *list)
             ans++;
             node = node->next;
         }
-        return ans;
+        return ans + 1;
     } else {
         return 0;
     }
