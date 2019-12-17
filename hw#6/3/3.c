@@ -7,12 +7,7 @@ int main()
     printf("write count of numbers: ");
     int N = 0;
     scanf("%d", &N);
-    int mas[arrSize], check[arrSize];
-    for (int i = 0; i < arrSize; i++)
-    {
-        check[i] = 0;
-        mas[i] = 0;
-    }
+    int mas[arrSize] = {0}, check[arrSize] = {0};
     int to = 0;
     printf("write your numbers: ");
     for (int i = 0; i < N; i++)

@@ -14,6 +14,11 @@ int main()
     printf("%s", "write size of string: ");
     scanf("%ud", &strSize);
     str = malloc(strSize * sizeof(char));
+    if (!str)
+    {
+        printf("ERRORm\n");
+        exit(1);
+    }
     printf ("%s", "your string: ");
     scanf("%s", str);
     int result = 0;
