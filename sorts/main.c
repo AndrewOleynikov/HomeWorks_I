@@ -59,7 +59,8 @@ void merge(unsigned *arr, unsigned first, unsigned last)
 
 void subMergeSort(unsigned *arr, unsigned first, unsigned last)
 {
-    if (first == last){
+    if (first == last)
+    {
         return;
     }
 
@@ -113,7 +114,7 @@ void countSort(unsigned *arr, unsigned size)
     {
         if (numbers[i])
         {
-            for(size_t j = 0; j < numbers[i]; j++)
+            for (size_t j = 0; j < numbers[i]; j++)
             {
                 arr[l] = i;
                 l++;
@@ -142,6 +143,11 @@ int main()
         unsigned *a = (unsigned*)malloc(count[i]*sizeof(unsigned));
         unsigned *b = (unsigned*)malloc(count[i]*sizeof(unsigned));
         unsigned *c = (unsigned*)malloc(count[i]*sizeof(unsigned));
+        if (!a || !b || !c)
+        {
+            printf("ERRORm\n");
+            exit(1);
+        }
         for (size_t j = 0; j < count[i]; j++)
         {
             unsigned value = rand() % N;
