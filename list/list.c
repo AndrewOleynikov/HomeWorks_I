@@ -14,6 +14,11 @@ struct Node* createNode(int value)
 struct List* createList()
 {
     struct List *list = (struct List*)malloc(sizeof(struct List));
+    if (!list)
+    {
+        printf("ERRORm\n");
+        return NULL;
+    }
     list->head = NULL;
     return list;
 }
@@ -21,6 +26,11 @@ struct List* createList()
 void addHead(struct List *list, int value)
 {
     struct Node *node = (struct Node*)malloc(sizeof(struct Node));
+    if (!node)
+    {
+        printf("ERRORm\n");
+        return;
+    }
     node->value = value;
     node->next = list->head;
     list->head = node;
@@ -145,7 +155,7 @@ void makeCycle(struct List *list, int from, int to)
             }
             node = node->next;
         }
-        if ( node->value == to)
+        if (node->value == to)
         {
             node->next = nodeFrom;
         }
