@@ -22,6 +22,11 @@ struct Node* createNode(int value, char *word)
 struct List* createList()
 {
     struct List *list = (struct List*)malloc(sizeof(struct List));
+    if (!list)
+    {
+        printf("ERRORm\n");
+        return NULL;
+    }
     list->head = NULL;
     return list;
 }
@@ -36,6 +41,11 @@ void addHead(struct List *list, int value, char *word)
 void addTail(struct List *list, int value, char *word)
 {
     struct Node *node = (struct Node*)malloc(sizeof(struct Node));
+    if (!node)
+    {
+        printf("ERRORm\n");
+        return;
+    }
     if (list->head)
     {
         node = list->head;
@@ -87,9 +97,19 @@ void deleteNode(struct List *list, char *word)
     if (list->head->next)
     {
         struct Node *before = (struct Node*)malloc(sizeof(struct Node));
+        if (!before)
+        {
+            printf("ERRORm\n");
+            return;
+        }
         strcpy(before->word, list->head->word);
         before = list->head;
         struct Node *after = (struct Node*)malloc(sizeof(struct Node));
+        if (!after)
+        {
+            printf("ERRORm\n");
+            return;
+        }
         strcpy(after->word, list->head->word);
         after = list->head->next;
         while (after)
@@ -97,6 +117,11 @@ void deleteNode(struct List *list, char *word)
             if (!strcmp(after->word, word))
             {
                 struct Node *toDelete = (struct Node*)malloc(sizeof(struct Node));
+                if (!toDelete)
+                {
+                    printf("ERRORm\n");
+                    return;
+                }
                 toDelete = after;
                 if (after->value > 1)
                 {
@@ -127,6 +152,11 @@ void deleteNode(struct List *list, char *word)
                 return;
             }
             struct Node *toDelete = (struct Node*)malloc(sizeof(struct Node));
+            if (!toDelete)
+            {
+                printf("ERRORm\n");
+                return;
+            }
             toDelete->next = NULL;
             list->head = toDelete->next;
             free(toDelete);
@@ -141,6 +171,12 @@ void deleteNode(struct List *list, char *word)
             return;
         }
         struct Node *toDelete = (struct Node*)malloc(sizeof(struct Node));
+        if (!toDelete)
+        {
+            printf("ERRORm\n");
+            return;
+        }
+
         toDelete = list->head;
         list->head = toDelete->next;
         free(toDelete);
