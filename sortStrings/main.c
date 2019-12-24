@@ -5,7 +5,7 @@
 #include <malloc.h>
 #include <sys/stat.h>
 #include "mman.h"
-
+/*
 int strCmp(void* p1, void* p2)
 {
 	char* s1, * s2;
@@ -13,13 +13,32 @@ int strCmp(void* p1, void* p2)
 	s2 = *(char**)p2;
 	return strcmp(s1, s2);
 }
+*/
+int strCmp(const void* p1, const void* p2)
+{
+	char* s1 = *(char**)p1;
+	char* s2 = *(char**)p2;
+	for (int i = 0; s1[i] != '\r' && s2[i] != '\r' && s1[i] != '\n' && s2[i] != '\n'; i++)
+	{
+		if (s1[i] < s2[i])
+		{
+			return -1;
+		}
+		if (s1[i] > s2[i])
+        {
+			return 1;
+        }
+	}
+	return 0;
+}
 
 void copyAdressStr(char **strings, char *input)
 {
     size_t i = 0, iStr = 0, iInp = 0;
     while (input[i])
     {
-        if (input[i] == '\n') {
+        if (input[i] == '\n')
+        {
             strings[iStr] = &input[iInp];
             iStr++;
             iInp = i + 1;
