@@ -159,7 +159,7 @@ void parsingLabels(struct Interpreter *inter, FILE *progFile)
     inter->program.sizeOfProgram = numOfStr;
 }
 
-char* withoutLables( char *str)
+char* withoutLables(char *str)
 {
     size_t N = strlen(str);
     char *help = (char*)malloc((sizeof(char)) * N);
