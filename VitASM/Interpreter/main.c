@@ -291,7 +291,6 @@ void printBC(struct Interpreter inter)
 
 void pushStack(struct Stack *stack, int32_t value)
 {
-
     if (stack->size >= 1024)
     {
         printf("ERRORst");
@@ -319,14 +318,14 @@ void loadToMem(struct Stack *stack, int32_t *mem, int32_t arg)
 
 void addStack(struct Stack *stack)
 {
-    stack->data[stack->size] = stack->data[stack->size - 1] + stack->data[stack->size - 2];
-    stack->size++;
+    stack->data[stack->size - 2] = stack->data[stack->size - 1] + stack->data[stack->size - 2];
+    stack->size--;
 }
 
 void subStack(struct Stack *stack)
 {
-    stack->data[stack->size] = stack->data[stack->size - 1] - stack->data[stack->size - 2];
-    stack->size++;
+    stack->data[stack->size - 2] = stack->data[stack->size - 1] - stack->data[stack->size - 2];
+    stack->size--;
 }
 
 void cmpStack(struct Stack *stack)
