@@ -1,0 +1,23 @@
+; b <= a
+ldc a
+ldc b
+cmp
+ldc -1
+add
+br if
+(ELSE CMDs)
+jmp end
+if: (IF CMDs)
+end: (..)
+
+; b < a
+ldc a
+ldc b
+cmp
+ldc 1
+add
+br else
+(IF CMDs)
+jmp end
+else: (ELSE CMDs)
+end: (..)

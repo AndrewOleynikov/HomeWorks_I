@@ -1,0 +1,124 @@
+ldc 55
+st 5
+
+ldc 0
+st 6
+
+ldc 1
+st 0
+ldc 1
+st 1
+
+ldc 1
+st 3
+
+ldc 1
+st 4
+
+ch: ld 5
+ld 1
+cmp
+ldc -1
+add
+br to
+jmp end
+
+to: ld 4
+ldc 1
+add
+st 4
+ld 3
+ld 1
+add
+st 3
+ld 0
+ld 1
+st 2
+ld 1
+add
+st 1
+ld 2
+st 0
+jmp ch
+
+end: ld 4
+ldc 2
+cmp
+ldc 1
+add
+br exit
+ldc 1
+ld 6
+add
+st 6
+ld 4
+ldc -3
+add
+st 4
+jmp end
+
+exit: ldc 1
+st 7
+
+ldc 1
+st 0
+ldc 2
+st 1
+
+ldc 0
+st 8
+
+checking: ld 6
+ld 7
+cmp
+ldc -1
+add
+br doing
+jmp close
+
+doing: ld 8
+ld 1
+add
+st 8
+ld 7
+ldc 1
+add
+st 7
+ld 0
+ld 1
+st 2
+ld 1
+add
+st 1
+ld 2
+st 0
+
+ld 0
+ld 1
+st 2
+ld 1
+add
+st 1
+ld 2
+st 0
+
+ld 0
+ld 1
+st 2
+ld 1
+add
+st 1
+ld 2
+st 0
+jmp checking
+
+close: ld 5
+ldc 1
+cmp
+br olol
+ldc 1
+ret
+olol: ld 8
+ld 3
+sub
+ret
