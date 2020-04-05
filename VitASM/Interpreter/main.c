@@ -7,7 +7,7 @@ int main()
     struct Interpreter inter;
     startInterpretr(&inter);
 
-    FILE *progFile = fopen("program.txt", "r");
+    FILE *progFile = fopen("program.txt", "rt");
     if (!progFile)
     {
         printf("ERROR");
@@ -16,7 +16,7 @@ int main()
     parsingLabels(&inter, progFile);
     fclose(progFile);
 
-    progFile = fopen("program.txt", "r");
+    progFile = fopen("program.txt", "rt");
     if (!progFile)
     {
         printf("ERROR");
